@@ -2,7 +2,6 @@ import reducer, { add, phraseStatusTypes, remove } from "../matchWordsSlice";
 
 const initialState = {
   initialPhrase: [],
-  currentPhrase: [],
   phrasesArray: [],
   shuffledPhrase: [],
   userSubmission: [],
@@ -20,7 +19,6 @@ describe("match words reducer", () => {
     (previousState.initialPhrase = ["I", "brush", "my", "teeth."]),
       expect(reducer(previousState, add("I"))).toEqual({
         initialPhrase: ["I", "brush", "my", "teeth."],
-        currentPhrase: [],
         phrasesArray: [],
         shuffledPhrase: [],
         userSubmission: [],
@@ -41,6 +39,4 @@ describe("match words reducer", () => {
       userSubmission: ["word", "no", "yes"],
     });
   });
-
-  
 });

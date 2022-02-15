@@ -1,8 +1,8 @@
+// test-utils.jsx
 import React from 'react'
 import { render as rtlRender } from '@testing-library/react'
 import { configureStore } from '@reduxjs/toolkit'
 import { Provider } from 'react-redux'
-
 import matchWordsReducer from "./features/matchWords/matchWordsSlice";
 import gameReducer from "./features/game/gameSlice";
 
@@ -13,7 +13,7 @@ function render(
         store = configureStore({
             reducer: {
                 matchWords: matchWordsReducer,
-                game: gameReducer,
+                game: gameReducer
             }, preloadedState
         }),
         ...renderOptions

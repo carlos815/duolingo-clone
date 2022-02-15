@@ -1,69 +1,65 @@
-import { startGame, decrementLives } from "./game/gameSlice";
+import * as game from "./game/gameSlice";
 import {
   add,
   setNewWordGame,
   nextPhrase,
   resetWord,
 } from "./matchWords/matchWordsSlice";
-import { useDispatch } from "react-redux";
 
-export enum wordSubmitStatus {
+export enum WordSubmitStatus {
   completed,
   failed
 };
-export enum wordGameStatus {
+
+export enum WordGameStatus {
   completed,
   playing
 };
 
-
-
 export default class WordGameController {
-  initialPhrase: string[]
-  private static phrasesArray: string[][];
-
   constructor() {
-    this.initialPhrase = [];
+    // this.initialPhrase = [];
   }
 
 
+  phrasesArray = [];
 
-  async startWordGame(wordsGameData: { words: string[] }, dispatch: Function) {
-    WordGameController.phrasesArray = wordsGameData.words.map((phrase) => phrase.split(" "));
-    dispatch(setNewWordGame(WordGameController.phrasesArray));
-    dispatch(startGame());
+  startWordGame(wordsGameData: { words: string[] }, dispatch) {
+    this.phrasesArray = wordsGameData.words.map((phrase) => phrase.split(" "));
+    dispatch(setNewWordGame(this.phrasesArray));
+    dispatch(game.startGame());
   }
 
-  tryNextPhrase(currentPhraseIndex: number, phrasesArray: string[], dispatch: Function): wordGameStatus {
+  tryNextPhrase(currentPhraseIndex, phrasesArray, dispatch): WordGameStatus {
     //const waitAnimationMs = 1000;
     if (phrasesArray[currentPhraseIndex + 1] == undefined) {
-      return wordGameStatus.completed;
+      return WordGameStatus.completed;
     } else {
       dispatch(nextPhrase());
-      return wordGameStatus.playing;
+      return WordGameStatus.playing;
     }
   }
 
-  trySubmitWord(word: string, userSubmission: string, initialPhrase: string[], dispatch: Function): wordSubmitStatus {
+  trySubmitWord(word, userSubmission, initialPhrase, dispatch): WordSubmitStatus {
     if (this.isRightWord(word, userSubmission, initialPhrase)) {
       dispatch(add(word));
-      return wordSubmitStatus.completed;
+      return WordSubmitStatus.completed;
     } else {
-      dispatch(decrementLives());
-      return wordSubmitStatus.failed;
+      dispatch(game.decrementLives());
+      return WordSubmitStatus.failed;
     }
   }
 
-  reset(dispatch: Function) {
-    dispatch(startGame());
+  reset(dispatch) {
+    dispatch(game.startGame());
     dispatch(resetWord());
   }
 
-  resetWord(dispatch: Function) {
+  resetWord(dispatch) {
     dispatch(resetWord());
   }
 
-  private isRightWord(word: string, userSubmission: string, initialPhrase: string[]): boolean {
+  private isRightWord(word, userSubmission, initialPhrase): boolean {
     const indexOfSubmittedWord = userSubmission.length;
     return (
       initialPhrase[indexOfSubmittedWord].toLowerCase() == word.toLowerCase()

@@ -23,7 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "features/matchWords/matchWordsSlice.ts", "features/wordGameController.ts"  ],
   "exclude": [
     "node_modules"
   ]

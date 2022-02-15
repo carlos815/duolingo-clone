@@ -1,7 +1,7 @@
 
 import { useSelector, } from "react-redux";
 import { useEffect, useState } from "react";
-import WordGameController, { wordSubmitStatus } from "../../features/wordGameController";
+import WordGameController, { WordSubmitStatus } from "../../features/wordGameController";
 import { useDispatch } from "react-redux";
 
 export default function ClickableWord({ word }) {
@@ -23,10 +23,10 @@ export default function ClickableWord({ word }) {
         const wordSubmitStatusResponse = gameController.trySubmitWord(word, userSubmission, initialPhrase, dispatch)
 
 
-        if (wordSubmitStatusResponse == wordSubmitStatus.completed) {
+        if (wordSubmitStatusResponse == WordSubmitStatus.completed) {
             setIsActive(false)
         }
-        else if (wordSubmitStatusResponse == wordSubmitStatus.failed) {
+        else if (wordSubmitStatusResponse == WordSubmitStatus.failed) {
             errorAnimation(750)
         } else {
             //Remove word option probably not necessary
@@ -42,7 +42,7 @@ export default function ClickableWord({ word }) {
     return (
         <button onClick={handleClick} className={`
          bg-gray-light rounded-lg p-4 h-14 md:text-4xl md:h-auto
-       shadow-md ${isButtonActive && "hover:scale-110" || "text-gray-medium"}  ${hasError ? "text-red animate-shake" : ""} transition-all duration-300 font-medium`}>
+       shadow-md ${isButtonActive && "hover:scale-110" || "text-gray-medium inactive"}  ${hasError ? "text-red animate-shake error" : ""} transition-all duration-300 font-medium`}>
             {word}
         </button>
     );

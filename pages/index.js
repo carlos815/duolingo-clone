@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import BackgroundImage from "../components/BackgroundImage";
 import WordGameController, {
-  wordGameStatus,
+  WordGameStatus,
 } from "../features/wordGameController";
 import { phraseStatusTypes } from "../features/matchWords/matchWordsSlice";
 import { getDataWordGame } from "../fetchData/getDataWordGame";
@@ -51,7 +51,7 @@ export default function Home({ wordsGameData }) {
         dispatch
       );
 
-      if (nextGameStatus == wordGameStatus.completed) {
+      if (nextGameStatus == WordGameStatus.completed) {
         dispatch(userWonGame());
       }
     }

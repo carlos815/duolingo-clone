@@ -7,7 +7,6 @@ export const phraseStatusTypes = {
 
 const initialState = {
   initialPhrase: [],
-  currentPhrase: [],
   phrasesArray: [],
   shuffledPhrase: [],
   userSubmission: [],
@@ -76,5 +75,5 @@ export const {
   setNewWordGame,
   nextPhrase,
 } = matchWordsSlice.actions;
-
+export const currentPhrasesArray = state => state.matchWords.currentPhrasesArray
 export default matchWordsSlice.reducer;
