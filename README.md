@@ -5,7 +5,7 @@ https://duolingo-clone-smoky.vercel.app/
 
 "Duolingo clone" is a bit of a stretch :)
 
-This is a duolingo-like phrase completion interaction, with my own take on design. You just put the words in the right order to complete the phrase.
+It's a phrase completion interaction just like the one duolingo has, with my own take on design. You just put the words in the right order to complete the phrase.
 
 Technologies used:
 - React + [Next.js](https://nextjs.org/)
