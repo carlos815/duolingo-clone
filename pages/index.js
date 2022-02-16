@@ -33,11 +33,11 @@ export default function Home({ wordsGameData }) {
   const currentPhraseIndex = useSelector(
     (state) => state.matchWords.currentPhraseIndex
   );
-  const gameController = new WordGameController();
-
+  let gameController;
   useEffect(() => {
+    gameController = new WordGameController();
     gameController.startWordGame(wordsGameData, dispatch);
-  }, [wordsGameData, dispatch]);
+  }, [gameController, wordsGameData, dispatch]);
 
   useEffect(() => {
     if (

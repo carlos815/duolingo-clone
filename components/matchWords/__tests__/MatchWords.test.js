@@ -55,7 +55,13 @@ export const MatchWordsWrapper = ({ wordsGameData }) => {
         dispatch(userWonGame());
       }
     }
-  }, [phraseStatus]);
+  }, [
+    currentPhraseIndex,
+    dispatch,
+    initialPhrase.length,
+    phrasesArray,
+    phraseStatus,
+  ]);
 
   return (
     <MatchWords
