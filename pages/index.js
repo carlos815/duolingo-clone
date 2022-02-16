@@ -4,7 +4,7 @@ import Lives from "../components/Lives";
 import MatchWords from "../components/matchWords/MatchWords";
 import { userWonGame, gameStatusTypes } from "../features/game/gameSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import WordGameController, {
   WordGameStatus,
 } from "../features/wordGameController";
@@ -33,9 +33,10 @@ export default function Home({ wordsGameData }) {
   const currentPhraseIndex = useSelector(
     (state) => state.matchWords.currentPhraseIndex
   );
-  let gameController;
+
+  const gameController = useMemo(() => new WordGameController(), []);
+
   useEffect(() => {
-    gameController = new WordGameController();
     gameController.startWordGame(wordsGameData, dispatch);
   }, [gameController, wordsGameData, dispatch]);
 
