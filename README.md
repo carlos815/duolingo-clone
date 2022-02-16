@@ -1,4 +1,17 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Duolingo clone
+
+Live version here
+https://duolingo-clone-smoky.vercel.app/
+
+"Duolingo clone" is a bit of a stretch :)
+
+This is a duolingo-like phrase completion interaction, with my own take on design. You just put the words in the right order to complete the phrase.
+
+Technologies used:
+-React + [Next.js](https://nextjs.org/)
+-[Tailwind](https://tailwindcss.com/) for styles.
+-[Redux toolkit](https://redux-toolkit.js.org/) for state management.
+-[React Testing library](https://testing-library.com/docs/react-testing-library/intro/)
 
 ## Getting Started
 
