@@ -10,6 +10,7 @@ import WordGameController, {
 } from "../features/wordGameController";
 import { phraseStatusTypes } from "../features/matchWords/matchWordsSlice";
 import { getDataWordGame } from "../fetchData/getDataWordGame";
+import Link from "next/link";
 
 export async function getStaticProps() {
   const wordsGameData = await getDataWordGame();
@@ -121,11 +122,16 @@ export default function Home({ wordsGameData }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="p-6 relative min-h-screen flex justify-center">
-        <RenderedScreen />
-      </main>
-
-      <footer></footer>
+      <div className=" min-h-screen p-6 pb-2 flex flex-col justify-between items-center">
+        <main className="relative flex justify-center">
+          <RenderedScreen />
+        </main>
+        <footer className="underline text-lg">
+          <Link href="https://github.com/carlos815/duolingo-clone" passHref>
+            <a>Source code</a>
+          </Link>
+        </footer>
+      </div>
     </>
   );
 }
