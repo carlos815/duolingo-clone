@@ -67,49 +67,24 @@ export default function Home({ wordsGameData }) {
         <h1 className="text-4xl font-medium mb-3  md:text-5xl">
           Let's Practice
         </h1>
-        <p className="text-xl md:text-3xl">
-          Put the words in the right order to make a correct sentence.
-        </p>
       </div>
     );
   };
 
   const Header = ({ className }) => (
-    <div className={`flex mb-11  ${className}`}>
-      <div className="flex h-fit w-full place-items-center gap-x-8 ">
-        <div className="mr-auto  items-center text-left hidden md:block">
-          <div>
-            <h2 className="text-5xl font-display text-red w-full">
-              Story Title
-            </h2>
-            <h3 className="text-4xl font-body text-red w-full">Episode 1</h3>
-          </div>
-        </div>
-        <div className="mr-auto flex items-center md:hidden ">
-          <Image src="/logo.png" height={19} width={103} />
-        </div>
-        <Lives />
-        <div className="rounded-xl bg-white shadow-sm min-h-20 min-w-20 max-h-20 max-w-20 overflow-hidden md:block hidden">
-          <Image
-            src="/profile.png"
-            height={90}
-            width={90}
-            layout="fixed"
-            objectFit="cover"
-          />
-        </div>
-        <div className="md:hidden block">
-          <Image src="/speaker.png" height={34} width={34} />
-        </div>
+    <div className={`flex mb-11 justify-between ${className}`}>
+      <Lives />
+      <div className="md:text-2xl text-lx">
+        {currentPhraseIndex + 1} of {phrasesArray.length}
       </div>
     </div>
   );
 
   const gameScreen = (
-    <div className="md:grid md:grid-cols-7 md:gap-x-12   md:h-[95vh]">
-      <Header className="col-start-1  col-end-5 row-start-1 mr-9" />
-      <Title className="col-start-1 col-end-5  row-span-full flex flex-col justify-center mr-9" />
-      <div className="md:col-span-3 md:col-start-5 md:w-auto md:flex md:relative md:top-0 md:left-0 md:justify-center md:items-center md:row-span-full w-full fixed top-[50%] left-0 p-6 justify-items-stretch">
+    <div className="max-w-3xl w-full">
+      <Header className="" />
+      <Title className="" />
+      <div className=" w-full  p-6 justify-items-stretch">
         <MatchWords
           className=""
           gameController={gameController}
@@ -139,12 +114,11 @@ export default function Home({ wordsGameData }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="p-6 relative min-h-screen ">
+      <main className="p-6 relative min-h-screen flex justify-center">
         <RenderedScreen />
       </main>
 
       <footer></footer>
-      <BackgroundImage />
     </>
   );
 }

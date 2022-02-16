@@ -26,7 +26,7 @@ export default function MatchWords({ wordsArray, className, gameController }) {
             <button onClick={handleResetBtnClick} className="self-end flex ">
                 <Image src="/retry.png" height={resetIconSize} width={resetIconSize}></Image>
             </button>
-            <div className="w-full bg-gray-light rounded-lg p-4 h-14 shadow-md md:text-4xl md:h-[72px] " data-testid="matchWordsInputField" > {userSubmission?.join(" ")}
+            <div className="w-full  p-4 h-14 border-b-2 border-l-gray md:text-4xl md:h-[72px] " data-testid="matchWordsInputField" > {userSubmission?.join(" ")}
             </div>
             <div className="flex flex-wrap gap-4 justify-center">
                 {wordsArray?.map(((wordObject) => <ClickableWord word={wordObject.word} key={wordObject.index} index={wordObject.index} />))}

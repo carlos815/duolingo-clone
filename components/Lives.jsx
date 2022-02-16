@@ -26,12 +26,14 @@ function Hearts({ livesCount, livesTotal }) {
     for (let i = 0; i < livesTotal; i++) {
 
         if (i < livesCount) {
+            //full heart
             hearts.push(
-                <Image src="/heart-filled.png" width={size} height={size} key={i} />
+                <Image src="/heart-solid.svg" width={size} height={size} key={i} />
             )
         } else {
+            //Empty heart
             hearts.push(
-                <Image src="/heart-empty.png" width={size} height={size} key={i} />
+                <Image src="/heart-regular.svg" width={size} height={size} key={i} />
             )
         }
     }

@@ -41,8 +41,8 @@ export default function ClickableWord({ word }) {
     }
     return (
         <button onClick={handleClick} className={`
-         bg-gray-light rounded-lg p-4 h-14 md:text-4xl md:h-auto
-       shadow-md ${isButtonActive && "hover:scale-110" || "text-gray-medium inactive"}  ${hasError ? "text-red animate-shake error" : ""} transition-all duration-300 font-medium`}>
+         md:rounded-xl p-4  md:text-4xl md:h-auto md:border-4 md:border-b-8 border-black text-base border-2 border-b-4 rounded-lg
+       ${isButtonActive && "hover:scale-110" || "opacity-10  bg-white border-b-4 inactive"}  ${hasError ? "text bg-red-200 animate-shake error" : ""} transition-all duration-300 font-medium`}>
             {word}
         </button>
     );
