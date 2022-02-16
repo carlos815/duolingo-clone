@@ -38,7 +38,7 @@ export const MatchWordsWrapper = ({ wordsGameData }) => {
 
   useEffect(() => {
     gameController.startWordGame(wordsGameData, dispatch);
-  }, []);
+  }, [wordsGameData, dispatch]);
 
   useEffect(() => {
     if (

@@ -28,12 +28,12 @@ function Hearts({ livesCount, livesTotal }) {
         if (i < livesCount) {
             //full heart
             hearts.push(
-                <Image src="/heart-solid.svg" width={size} height={size} key={i} />
+                <Image src="/heart-solid.svg" width={size} height={size} key={i} alt="filled heart" />
             )
         } else {
             //Empty heart
             hearts.push(
-                <Image src="/heart-regular.svg" width={size} height={size} key={i} />
+                <Image src="/heart-regular.svg" width={size} height={size} key={i} alt="empty heart" />
             )
         }
     }

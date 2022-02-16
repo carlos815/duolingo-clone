@@ -5,7 +5,6 @@ import MatchWords from "../components/matchWords/MatchWords";
 import { userWonGame, gameStatusTypes } from "../features/game/gameSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import BackgroundImage from "../components/BackgroundImage";
 import WordGameController, {
   WordGameStatus,
 } from "../features/wordGameController";
@@ -38,7 +37,7 @@ export default function Home({ wordsGameData }) {
 
   useEffect(() => {
     gameController.startWordGame(wordsGameData, dispatch);
-  }, []);
+  }, [wordsGameData, dispatch]);
 
   useEffect(() => {
     if (
@@ -55,7 +54,14 @@ export default function Home({ wordsGameData }) {
         dispatch(userWonGame());
       }
     }
-  }, [phraseStatus]);
+  }, [
+    currentPhraseIndex,
+    phraseStatus,
+    gameController,
+    initialPhrase.length,
+    dispatch,
+    phrasesArray,
+  ]);
 
   const restartGame = () => {
     gameController.startWordGame(wordsGameData, dispatch);
@@ -64,15 +70,15 @@ export default function Home({ wordsGameData }) {
   const Title = ({ className }) => {
     return (
       <div className={className}>
-        <h1 className="text-4xl font-medium mb-3  md:text-5xl">
-          Let's Practice
+        <h1 className="text-4xl font-medium mb-28  md:text-5xl ">
+          Select the words in the correct order
         </h1>
       </div>
     );
   };
 
   const Header = ({ className }) => (
-    <div className={`flex mb-11 justify-between ${className}`}>
+    <div className={`flex mb-11 justify-between ${className}  mb-20`}>
       <Lives />
       <div className="md:text-2xl text-lx">
         {currentPhraseIndex + 1} of {phrasesArray.length}
